@@ -1,33 +1,124 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../favicon.ico">
+<!-- Bootstrap core CSS -->
+<link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 sidebar1">
-                <div class="logo">
-                    <img src="http://lorempixel.com/output/people-q-g-64-64-1.jpg" class="img-responsive center-block" alt="Logo">
-                </div>
-                <br>
-                <div class="left-navigation">
-                    <ul class="list">
-                        <h5><strong>WHEREABOUTS</strong></h5>
-                        <li>Home</li>
-                        <li>Office</li>
-                        <li>School</li>
-                        <li>Gym</li>
-                        <li>Art Class</li>
-                        <li>Hike Club</li>
-                    </ul>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
-                    <br>
+<!-- Custom styles for this template -->
+<link href="cover.css" rel="stylesheet">
 
-                    <ul class="list">
-                        <h5><strong>HOBBIES</strong></h5>
-                        <li>Hiking</li>
-                        <li>Rafting</li>
-                        <li>Badminton</li>
-                        <li>Tennis</li>
-                        <li>Sketching</li>
-                        <li>Horse Riding</li>
-                    </ul>
-                </div>
-            </div>
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+<div class="site-wrapper">
+
+<div class="site-wrapper-inner">
+
+  <div class="cover-container">
+    <header>
+      <div class="header">
+          <h2 class="masthead-brand"><%= evil_icon 'ei-cart', size: :s %><%= link_to 'Bookstore', root_path %></h2>
+      </div>
+    </header>
+
+    <div class="masthead clearfix">
+      <div class="inner">
+        <nav>
+          <ul class="nav masthead-nav">
+            <li class= "<%= params[:controller] =='welcome' ? 'active' : '' %>"><%= link_to 'Inicio', root_path %></li>
+            <li class= "<%= params[:controller] =='books' ? 'active' : '' %>"><%= link_to 'Libros', books_path %></li>
+            <li class= "<%= params[:controller] =='authors' ? 'active' : '' %>"><%= link_to 'Autores', authors_path %></li>
+            <li class= "<%= params[:controller] =='categories' ? 'active' : '' %>"><%= link_to 'Categorias', categories_path %></li>
+            <li class= "<%= params[:controller] =='about' ? 'active'  : ''  %>"><%= link_to 'About', about_path %></li>
+            <li class="dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Agregar Nuevo <span class="caret"></span></a>
+               <ul class="dropdown-menu">
+                 <li><%= link_to 'Libro', new_book_path%></li>
+                 <li role="separator" class="divider"></li>
+                 <li><%= link_to 'Categoria', new_category_path%></li>
+                 <li role="separator" class="divider"></li>
+                 <li><%= link_to 'Autor', new_author_path%></li>
+                 <li role="separator" class="divider"></li>
+                 <li><%= link_to 'Editorial', new_publisher_path%></li>
+               </ul>
+             </li>
+          </ul>
+        </nav>
+      </div>
     </div>
+    <div class="child-div">
+  <h4>
+    <%= @page_title ? @page_title : ' Welcome'%>
+  </h4>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <%= render 'partial/sidebar' %>
+        </div>
+        <div class="col-md-8">
+          <%= yield %>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+    </div>
+    <div class="mastfoot">
+      <div class="inner">
+          <div class="well">
+          <a href="https://twitter.com/mdo", target = '_blank' ><%= evil_icon 'ei-sc-facebook', size: :m %></a>
+          <a href="https://www.instagram.com/ing.raulreyes/", target = '_blank' ><%= evil_icon 'ei-sc-instagram', size: :m %></a>
+          <a href="https://twitter.com/Rulo__", target = '_blank' ><%= evil_icon 'ei-sc-twitter', size: :m %></a>
+          <a href="https://github.com/ingraulr", target = '_blank' ><%= evil_icon 'ei-sc-github', size: :m %></a>
+      </div>
+      Created By: <a href="https://www.instagram.com/ing.raulreyes/">@Raul</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript">
+$(function() {
+// elementos de la lista
+var menues = $(".nav li");
+// manejador de click sobre todos los elementos
+menues.click(function() {
+   // eliminamos active de todos los elementos
+   menues.removeClass("active");
+   // activamos el elemento clicado.
+   $(this).addClass("active");
+});
+
+});
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+</body>
+</html>
