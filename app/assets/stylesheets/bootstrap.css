@@ -4322,6 +4322,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-nav {
   margin: 7.5px -15px;
+
 }
 .navbar-nav > li > a {
   padding-top: 10px;
@@ -4589,8 +4590,10 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color: #222;
+
   border-color: #080808;
+  background: url(http://blogdesuperheroes.es/wp-content/plugins/BdSGallery/BdSGaleria/38098.jpg)  no-repeat center center;
+
 }
 .navbar-inverse .navbar-brand {
   color: #9d9d9d;

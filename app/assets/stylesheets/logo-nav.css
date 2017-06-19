@@ -5,17 +5,22 @@
  */
 
 body {
-    padding-top: 70px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+    padding-top: 90px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
 }
 
 .navbar-fixed-top .nav {
     padding: 15px 0;
+    background: url(http://68.media.tumblr.com/tumblr_mc959rqNID1qefhwn.png)  no-repeat center center;
+    background-size: cover;
+    font-size:  1.4em;
+
 }
 
 .navbar-fixed-top .navbar-brand {
-    padding: 0 15px;
-    height: 110px;
+    padding: 0 10px;
+    height: 150px;
 }
+
 
 @media(min-width:768px) {
     body {
@@ -24,5 +29,9 @@ body {
 
     .navbar-fixed-top .navbar-brand {
         padding: 15px 0;
+        float: left;
+        padding: 15px;
+        text-align: left;
     }
+
 }

@@ -56,11 +56,14 @@
 
 .sidebar-nav {
     position: absolute;
-    top: 0;
+    top: 2;
     width: 250px;
     margin: 0;
     padding: 0;
     list-style: none;
+    color: rgb(254, 254, 254);
+    background: url(http://68.media.tumblr.com/tumblr_mc959rqNID1qefhwn.png) right repeat-y;
+    font-size: 1.4em;
 }
 
 .sidebar-nav li {
@@ -87,7 +90,7 @@
 
 .sidebar-nav > .sidebar-brand {
     height: 65px;
-    font-size: 18px;
+    font-size: 25px;
     line-height: 60px;
 }
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= @page_title ? @page_title : 'Welcome'%> | The Bookstore</title>
+  <title><%= @page_title ? @page_title : 'Welcome'%> | The ComicBook Store</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -31,7 +31,7 @@
 
 <body>
   <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -42,21 +42,29 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                    <img src="http://www.storiescomics.com/wp-content/uploads/2016/03/logo-1-1024x330.png" alt="" height="100" width="290">
+                    <img src="http://www.storiescomics.com/wp-content/uploads/2016/03/logo-1-1024x330.png" alt="" height="100" width="390">
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
+                  <li class= "<%= params[:controller] =='welcome' ? 'active' : '' %>"><%= link_to 'Inicio', root_path %></li>
+                  <li class= "<%= params[:controller] =='books' ? 'active' : '' %>"><%= link_to 'Libros', books_path %></li>
+                  <li class= "<%= params[:controller] =='authors' ? 'active' : '' %>"><%= link_to 'Autores', authors_path %></li>
+                  <li class= "<%= params[:controller] =='categories' ? 'active' : '' %>"><%= link_to 'Categorias', categories_path %></li>
+                  <li class= "<%= params[:controller] =='about' ? 'active'  : ''  %>"><%= link_to 'About', about_path %></li>
+                  <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Agregar Nuevo <span class="caret"></span></a>
+                     <ul class="dropdown-menu">
+                       <li><%= link_to 'Libro', new_book_path%></li>
+                       <li role="separator" class="divider"></li>
+                       <li><%= link_to 'Categoria', new_category_path%></li>
+                       <li role="separator" class="divider"></li>
+                       <li><%= link_to 'Autor', new_author_path%></li>
+                       <li role="separator" class="divider"></li>
+                       <li><%= link_to 'Editorial', new_publisher_path%></li>
+                     </ul>
+                   </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -71,11 +79,12 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="#">
-                        Start Bootstrap
+                        <h3><%= link_to 'ComicBook Store', root_path %></h3>
+                        <%= evil_icon 'ei-cart', size: :s %>
                     </a>
                 </li>
                 <li>
-                    <a href="#">Dashboard</a>
+                    <a href="#">Dashboard <%= evil_icon 'ei-cart', size: :s %></a>
                 </li>
                 <li>
                     <a href="#">Shortcuts</a>
@@ -105,6 +114,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <%= yield %>
+
                         <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
                     </div>
                 </div>
