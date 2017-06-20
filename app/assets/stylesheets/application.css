@@ -13,6 +13,7 @@
  *= require evil-icons
  *= require_tree .
  *= require_self
+ *= require bootstrap
  */
  /*
   * Globals
@@ -77,19 +78,30 @@
  }
 
  .footer {
-   position: absolute;
-   bottom: 0;
-   width: 100%;
-   height: 100px;
+   position: sticky;
+ left: 0;
+ bottom: 0;
+ height: 73px;
+ width: 100%;
    background-color: #111;
    text-align: center;
+
  }
 
+
  .container1{
-   margin-top: 50px;
+
    color: #fff;
    width: 100%;
+   padding-top: 10px;
  }
+ .thumbnail:hover{
+ 		opacity:1.00;
+ 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ 		transition: box-shadow 0.5s;
+
+ 		}
+
  /* Sidebar Styles */
 
  .sidebar-nav {
