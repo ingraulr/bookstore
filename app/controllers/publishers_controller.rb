@@ -3,6 +3,8 @@ class PublishersController < ApplicationController
     @page_title = 'Editoriales'
   end
   def new
+    @page_title = "Agregar Nueva Editorial"
+    @publisher = Publisher.new
   end
 
   def create

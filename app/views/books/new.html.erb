@@ -1,0 +1,51 @@
+<h1 align='center'>Nuevo comic</h1><br>
+
+<%= form_for @book do |f| %>
+  <div class="form-group">
+      <%= f.label :title %><br />
+      <%= f.text_field :title, class:'form-control' %> <br />
+  </div>
+
+  <div class="form-group">
+      <%= f.label :isbn %><br />
+      <%= f.text_field :isbn, class:'form-control' %> <br />
+  </div>
+  <div class="form-group">
+      <%= f.label :category %><br />
+      <%= f.select :category_id, Category.all.collect {|x| [x.name, x.id]}, {
+              :include_blank => 'Seleccione una'},class:'form-controll' %> <br /><br />
+  </div>
+  <div class="form-group">
+      <%= f.label :author %><br />
+      <%= f.select :author_id, Author.all.collect {|x| [x.name, x.id]}, {
+              :include_blank => 'Seleccione una'},class:'form-controll' %> <br /><br />
+  </div>
+  <div class="form-group">
+      <%= f.label :publisher %><br />
+      <%= f.select :publisher_id, Publisher.all.collect {|x| [x.name, x.id]}, {
+              :include_blank => 'Seleccione una'},class:'form-controll' %> <br /><br />
+  </div>
+  <div class="form-group">
+    <%= f.label :format%>
+    <%= t.text_field :format, class:'form-control' %><br />
+  </div>
+  <div class="form-group">
+    <%= f.label :excerpt %>
+    <%= t.text_area :excerpt, class:'form-control' %><br />
+  </div>
+  <div class="form-group">
+    <%= f.label :pages%>
+    <%= t.number_field :pages, class:'form-control' %><br />
+  </div>
+  <div class="form-group">
+    <%= f.label :price%>
+    <%= t.text_field :price, class:'form-control' %><br />
+  </div>
+  <div class="form-group">
+    <%= f.label :buy%>
+    <%= t.text_field :buy, class:'form-control' %><br />
+  </div>
+    <%= f.submit "Submit", class:'btn btn-primary' %>
+    <%= link_to "Cancel", books_path, class:'btn btn-primary' %>
+
+  <% end %>

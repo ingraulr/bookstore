@@ -12,7 +12,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -43,8 +42,6 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                  <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
-
                     <img src="http://www.storiescomics.com/wp-content/uploads/2016/03/logo-1-1024x330.png" alt="" height="100" width="390">
                 </a>
             </div>
@@ -56,20 +53,12 @@
                   <li class= "<%= params[:controller] =='authors' ? 'active' : '' %>"><%= link_to 'Autores', authors_path %></li>
                   <li class= "<%= params[:controller] =='categories' ? 'active' : '' %>"><%= link_to 'Categorias', categories_path %></li>
                   <li class= "<%= params[:controller] =='about' ? 'active'  : ''  %>"><%= link_to 'About', about_path %></li>
-                  <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li>
                 </ul>
+                <p align="right">
+                  <a href="#menu-toggle" class="btn btn-lg btn-primary" id="menu-toggle">Agregar Nuevo </a>
+                </p>
             </div>
+
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
@@ -83,25 +72,22 @@
                 <li class="sidebar-brand">
                     <a href="#">
                         <h3><%= link_to 'ComicBook Store', root_path %></h3>
-                        <p>
-                          <%= evil_icon 'ei-cart', size: :s %>
-                        </p>
                     </a>
                 </li>
                 <li>
                     <a href="#">Dashboard <%= evil_icon 'ei-cart', size: :s %></a>
                 </li>
                 <li>
-                    <a href="#">Shortcuts</a>
+                    <a href="#"><%= link_to 'Nuevo Comic', new_book_path%></a>
                 </li>
                 <li>
-                    <a href="#">Overview</a>
+                    <a href="#"><%= link_to 'Nuevo Autor', new_author_path%></a>
                 </li>
                 <li>
-                    <a href="#">Events</a>
+                    <a href="#"><%= link_to 'Nueva Editorial', new_publisher_path %></a>
                 </li>
                 <li>
-                    <a href="#">About</a>
+                    <a href="#"><%= link_to 'Nueva CateGoria', new_category_path %></a>
                 </li>
                 <li>
                     <a href="#">Services</a>
@@ -119,7 +105,9 @@
                 <div class="row">
                     <div class="col-lg-12">
                       <br><br>
+                      <div class="container3">
                         <%= yield %>
+                      </div>
 
                     </div>
 

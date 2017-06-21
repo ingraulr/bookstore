@@ -1,8 +1,13 @@
 class BooksController < ApplicationController
   def index
-    @page_title = 'Libros'
+    @page_title = 'Comics'
   end
   def new
+    @page_title = "Nuevo comic"
+    @book = Book.new
+    @category = Category.new
+    @author = Author.new
+    @publisher = Publisher.new
   end
 
   def create
