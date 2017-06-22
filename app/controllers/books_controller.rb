@@ -25,4 +25,7 @@ class BooksController < ApplicationController
 
   def show
   end
+
+  private
+    params.require(:book).permit(:title, cate)
 end
